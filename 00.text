@@ -1,3 +1,7 @@
 git add .
-git commit -m "update portfolio code"
+git commit -m "update"
+git pull origin main --rebase
 git push origin main
+npm run deploy
+
+

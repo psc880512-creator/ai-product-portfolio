@@ -39,6 +39,21 @@ const ProjectModal = ({ project, onClose }) => {
         <div className="modal-header">
           <h2 className="modal-title">{project.title}</h2>
           <p className="modal-subtitle">{project.description}</p>
+
+          {project.link ? (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-project-link"
+            >
+              프로젝트 보러가기
+            </a>
+          ) : (
+            <button className="btn-project-link disabled" disabled>
+              준비중
+            </button>
+          )}
         </div>
 
         <div className="modal-body">
