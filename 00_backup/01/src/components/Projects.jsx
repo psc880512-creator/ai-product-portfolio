@@ -200,17 +200,10 @@ const Projects = ({ onOpenModal }) => {
           {featuredProjects.map((project) => (
             <div key={project.id} className="project-card featured">
               <div className="project-image-wrapper">
-                {project.image ? (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="project-image"
-                  />
-                ) : (
-                  <div className="project-image placeholder-img">
-                    <span className="placeholder-text">Thumbnail</span>
-                  </div>
-                )}
+                {/* Fallback pattern if image is missing */}
+                <div className="project-image placeholder-img">
+                  <span className="placeholder-text">Thumbnail</span>
+                </div>
               </div>
               <div className="project-content">
                 <div className="project-tags">
@@ -231,6 +224,7 @@ const Projects = ({ onOpenModal }) => {
           ))}
         </div>
 
+        {/* Other Projects */}
         <div className="other-projects">
           {otherProjects.map((project) => (
             <div key={project.id} className="project-card compact">

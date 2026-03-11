@@ -12,24 +12,23 @@ const ProjectModal = ({ project, onClose }) => {
 
   // Generate 120 placeholder images (Newest first)
   const isImageProject = project.id === 4;
-  const galleryImages = isImageProject ? Array.from({ length: 120 }, (_, i) => ({
-    id: 120 - i,
-    url: '',
-    title: `Asset #${120 - i}`
+  const galleryImages = isImageProject ? Array.from({ length: 120 }, (_, i) => ({ 
+    id: 120 - i, 
+    url: '', 
+    title: `Asset #${120 - i}` 
   })) : [];
 
   const handleNext = () => {
     if (selectedImgIdx < galleryImages.length - 1) setSelectedImgIdx(selectedImgIdx + 1);
   };
-
   const handlePrev = () => {
     if (selectedImgIdx > 0) setSelectedImgIdx(selectedImgIdx - 1);
   };
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div
-        className="modal-content animate-fade-in"
+      <div 
+        className="modal-content animate-fade-in" 
         onClick={(e) => e.stopPropagation()}
       >
         <button className="modal-close-btn" onClick={onClose}>
@@ -37,16 +36,17 @@ const ProjectModal = ({ project, onClose }) => {
         </button>
 
         <div className="modal-header">
-          <h2 className="modal-title">{project.title}</h2>
-          <p className="modal-subtitle">{project.description}</p>
+           <h2 className="modal-title">{project.title}</h2>
+           <p className="modal-subtitle">{project.description}</p>
         </div>
 
         <div className="modal-body">
           {project.id === 4 ? (
             /* Gallery Layout for ID 4 (AI Image Design) */
             <div className="modal-gallery-container">
-
+              
               {selectedImgIdx === null ? (
+                // Thumbnail Grid View
                 <>
                   <div className="gallery-header">
                     <h3><CheckCircle size={18} className="detail-icon" /> AI 생성 및 리터칭 에셋 갤러리 (총 {galleryImages.length}개)</h3>
@@ -54,8 +54,8 @@ const ProjectModal = ({ project, onClose }) => {
                   </div>
                   <div className="gallery-grid">
                     {galleryImages.map((img, idx) => (
-                      <div
-                        key={img.id}
+                      <div 
+                        key={img.id} 
                         className="gallery-item placeholder-img cursor-pointer"
                         onClick={() => setSelectedImgIdx(idx)}
                       >
@@ -65,6 +65,7 @@ const ProjectModal = ({ project, onClose }) => {
                   </div>
                 </>
               ) : (
+                // Large Image Slider View
                 <div className="gallery-slider-view">
                   <div className="slider-header">
                     <button className="btn-back-gallery" onClick={() => setSelectedImgIdx(null)}>
@@ -75,20 +76,21 @@ const ProjectModal = ({ project, onClose }) => {
                     </span>
                   </div>
                   <div className="slider-container">
-                    <button
-                      className="slider-btn prev-btn"
+                    <button 
+                      className="slider-btn prev-btn" 
                       onClick={handlePrev}
                       disabled={selectedImgIdx === 0}
                     >
                       <ChevronLeft size={32} />
                     </button>
-
+                    
                     <div className="slider-image-wrapper placeholder-img">
+                      {/* Replace with actual <img> tag when images are ready */}
                       <span className="placeholder-text text-large">{galleryImages[selectedImgIdx].title}</span>
                     </div>
 
-                    <button
-                      className="slider-btn next-btn"
+                    <button 
+                      className="slider-btn next-btn" 
                       onClick={handleNext}
                       disabled={selectedImgIdx === galleryImages.length - 1}
                     >
@@ -106,45 +108,38 @@ const ProjectModal = ({ project, onClose }) => {
               </div>
             </div>
           ) : (
+            /* Default Text Layout for other projects */
             <>
               {/* Image Area */}
               <div className="modal-image-container">
-                {project.image ? (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="modal-image"
-                  />
-                ) : (
-                  <div className="modal-image placeholder-img">
-                    <span className="placeholder-text">Project Screenshot / Demo</span>
-                  </div>
-                )}
+                <div className="modal-image placeholder-img">
+                   <span className="placeholder-text">Project Screenshot / Demo</span>
+                </div>
               </div>
 
-              {/* Details Area */}
-              <div className="modal-details-grid">
-                <div className="detail-section">
-                  <h3><CheckCircle size={18} className="detail-icon" /> 문제 정의</h3>
-                  <p>{project.details.problem}</p>
-                </div>
-                <div className="detail-section">
-                  <h3><CheckCircle size={18} className="detail-icon" /> 해결 방법</h3>
-                  <p>{project.details.solution}</p>
-                </div>
-                <div className="detail-section">
-                  <h3><CheckCircle size={18} className="detail-icon" /> 본인 역할</h3>
-                  <p>{project.details.role}</p>
-                </div>
-                <div className="detail-section">
-                  <h3><CheckCircle size={18} className="detail-icon" /> 사용 기술</h3>
-                  <p>{project.details.tech}</p>
-                </div>
-                <div className="detail-section full-width">
-                  <h3><CheckCircle size={18} className="detail-icon" /> 결과/성과</h3>
-                  <p className="highlight-text">{project.details.result}</p>
-                </div>
-              </div>
+               {/* Details Area */}
+               <div className="modal-details-grid">
+                  <div className="detail-section">
+                    <h3><CheckCircle size={18} className="detail-icon" /> 문제 정의</h3>
+                    <p>{project.details.problem}</p>
+                  </div>
+                  <div className="detail-section">
+                    <h3><CheckCircle size={18} className="detail-icon" /> 해결 방법</h3>
+                    <p>{project.details.solution}</p>
+                  </div>
+                  <div className="detail-section">
+                    <h3><CheckCircle size={18} className="detail-icon" /> 본인 역할</h3>
+                    <p>{project.details.role}</p>
+                  </div>
+                  <div className="detail-section">
+                    <h3><CheckCircle size={18} className="detail-icon" /> 사용 기술</h3>
+                    <p>{project.details.tech}</p>
+                  </div>
+                  <div className="detail-section full-width">
+                    <h3><CheckCircle size={18} className="detail-icon" /> 결과/성과</h3>
+                    <p className="highlight-text">{project.details.result}</p>
+                  </div>
+               </div>
             </>
           )}
         </div>
@@ -161,6 +156,7 @@ const ProjectModal = ({ project, onClose }) => {
             </a>
           )}
         </div>
+
       </div>
     </div>
   );
