@@ -10,13 +10,13 @@ const ProjectModal = ({ project, onClose }) => {
 
   if (!project) return null;
 
-  const isImageProject = project.id === 6;
+  const isImageProject = project.id === 4;
 
   const galleryImages = isImageProject
     ? Array.from({ length: 120 }, (_, i) => ({
-        id: 120 - i,
-        url: '',
-        title: `Asset #${120 - i}`
+        id: i + 1,
+        url: `/ai-gallery/img${i + 1}.jpg`,
+        title: `Asset ${i + 1}`
       }))
     : [];
 
@@ -86,7 +86,7 @@ const ProjectModal = ({ project, onClose }) => {
                         className="gallery-item placeholder-img cursor-pointer"
                         onClick={() => setSelectedImgIdx(idx)}
                       >
-                        <span className="placeholder-text">{img.title}</span>
+                        <img src={img.url} alt={img.title} />
                       </div>
                     ))}
                   </div>
@@ -117,10 +117,12 @@ const ProjectModal = ({ project, onClose }) => {
                       <ChevronLeft size={32} />
                     </button>
 
-                    <div className="slider-image-wrapper placeholder-img">
-                      <span className="placeholder-text text-large">
-                        {galleryImages[selectedImgIdx].title}
-                      </span>
+                    <div className="slider-image-wrapper">
+                      <img
+                        src={galleryImages[selectedImgIdx].url}
+                        alt={galleryImages[selectedImgIdx].title}
+                        className="gallery-image"
+                      />
                     </div>
 
                     <button
