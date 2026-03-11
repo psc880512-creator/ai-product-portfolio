@@ -1,4 +1,4 @@
-aimport React from 'react';
+import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import project1Img from '../assets/project1-placeholder.png';
 import project2Img from '../assets/project2-placeholder.png';
@@ -204,6 +204,7 @@ const Projects = ({ onOpenModal }) => {
               onClick={() => onOpenModal(project)}
               role="button"
               tabIndex={0}
+              style={{ cursor: "pointer" }}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   onOpenModal(project);
