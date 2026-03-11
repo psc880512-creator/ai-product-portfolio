@@ -198,7 +198,18 @@ const Projects = ({ onOpenModal }) => {
 
         <div className="projects-grid">
           {featuredProjects.map((project) => (
-            <div key={project.id} className="project-card featured">
+            <div
+              key={project.id}
+              className="project-card featured"
+              onClick={() => onOpenModal(project)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  onOpenModal(project);
+                }
+              }}
+            >
               <div className="project-image-wrapper">
                 {project.image ? (
                   <img
