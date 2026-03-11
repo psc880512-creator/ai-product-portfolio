@@ -14,6 +14,7 @@ const Projects = ({ onOpenModal }) => {
       description: "뉴스 데이터를 자동 수집하고 AI를 활용해 기사 요약과 경제 용어 분석을 제공하는 웹 서비스",
       tags: ["React", "FastAPI", "OpenAI", "Chrome Extension"],
       image: project1Img,
+      link: "https://drive.google.com/file/d/1OqNb6OK5QGnZ9zQR7vd5zACY-Nx3rtWv/view?usp=sharing",
       featured: true,
       details: {
         problem: (
@@ -63,6 +64,7 @@ const Projects = ({ onOpenModal }) => {
       description: "CCTV 영상을 활용하여 매장 좌석 사용 여부와 혼잡도를 자동 분석하는 Computer Vision 시스템",
       tags: ["Python", "YOLOv8", "OpenCV", "Flask"],
       image: project2Img,
+      link: "https://docs.google.com/presentation/d/1ACudzlOGjos0_7OUUDaFRYmhQOoAAeOF/edit?usp=sharing&ouid=111664726781112500164&rtpof=true&sd=true",
       featured: true,
       details: {
         problem: (
@@ -111,6 +113,7 @@ const Projects = ({ onOpenModal }) => {
       description: "메신저 대화 데이터를 분석하여 감정, 이슈, 약속 정보를 자동 추출하는 NLP 기반 분석 시스템",
       tags: ["Python", "NLP", "Graph RAG", "Neo4j", "OpenAI"],
       image: project3Img,
+      link: "",
       featured: true,
       details: {
         problem: (
