@@ -777,6 +777,37 @@ section {
   background-color: var(--bg-secondary);
 }
 
+.btn-project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  margin-top: 14px;
+  padding: 10px 16px;
+
+  font-weight: 700;
+  font-size: 15px;
+
+  color: #0b5cff;       /* 진한 파랑 */
+  background: transparent;
+
+  border: 2px solid #0b5cff;
+  border-radius: 8px;
+
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-project-link:hover {
+  background: #0b5cff;
+  color: white;
+}
+.btn-project-link.disabled {
+  border-color: #ccc;
+  color: #999;
+  cursor: not-allowed;
+}
+
 .slider-counter {
   font-weight: 600;
   color: var(--text-muted);
