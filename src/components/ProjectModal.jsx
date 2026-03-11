@@ -12,11 +12,16 @@ const ProjectModal = ({ project, onClose }) => {
 
   const isImageProject = project.id === 4;
 
+  const imageModules = import.meta.glob('../assets/ai-gallery/*.{png,jpg,jpeg,webp}', {
+    eager: true,
+    import: 'default',
+  });
+
   const galleryImages = isImageProject
-    ? Array.from({ length: 120 }, (_, i) => ({
-        id: i + 1,
-        url: `/ai-gallery/img${i + 1}.jpg`,
-        title: `Asset ${i + 1}`
+    ? Object.entries(imageModules).map(([path, url], idx) => ({
+        id: idx + 1,
+        url,
+        title: path.split('/').pop().split('.').slice(0, -1).join('.')
       }))
     : [];
 
@@ -83,10 +88,10 @@ const ProjectModal = ({ project, onClose }) => {
                     {galleryImages.map((img, idx) => (
                       <div
                         key={img.id}
-                        className="gallery-item placeholder-img cursor-pointer"
+                        className="gallery-item cursor-pointer"
                         onClick={() => setSelectedImgIdx(idx)}
                       >
-                        <img src={img.url} alt={img.title} />
+                        <img src={img.url} alt={img.title} className="gallery-thumb" />
                       </div>
                     ))}
                   </div>
