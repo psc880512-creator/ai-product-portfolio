@@ -158,7 +158,7 @@ const Projects = ({ onOpenModal }) => {
     },
     {
       id: 4,
-      title: "AI 이미지 디자인 작업",
+      title: "AI & 웹 이미지 디자인 작업",
       description: "ComfyUI를 활용한 고효율 브랜드 이미지 에셋 제작",
       tags: ["ComfyUI", "Photoshop"],
       image: project4Img,
