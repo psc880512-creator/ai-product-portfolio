@@ -10,7 +10,7 @@ const ProjectModal = ({ project, onClose }) => {
 
   if (!project) return null;
 
-  const isImageProject = project.id === 4;
+  const isImageProject = project.id === 6;
 
   const galleryImages = isImageProject
     ? Array.from({ length: 120 }, (_, i) => ({
