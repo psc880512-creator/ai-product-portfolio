@@ -162,6 +162,7 @@ const Projects = ({ onOpenModal }) => {
       description: "ComfyUI를 활용한 고효율 브랜드 이미지 에셋 제작",
       tags: ["ComfyUI", "Photoshop"],
       image: project4Img,
+      link: "https://drive.google.com/file/d/1cEEQEv9mRBhmX4E-aVTK3DkWlQ5Y_nCQ/view?usp=drive_link",
       featured: false,
       details: {
         problem: "기존 스톡 이미지로는 브랜드 아이덴티티를 온전히 표현하는 데 한계가 있으며, 자체 촬영 시 비용과 시간이 과다함.",
