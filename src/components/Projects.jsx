@@ -158,9 +158,9 @@ const Projects = ({ onOpenModal }) => {
     },
     {
       id: 4,
-      title: "AI & 웹 이미지 디자인 작업",
+      title: "AI 이미지 디자인 작업",
       description: "ComfyUI를 활용한 고효율 브랜드 이미지 에셋 제작",
-      tags: ["ComfyUI", "Photoshop"],
+      tags: ["ComfyUI", "Nano Banana", "Photoshop", "Illustrator", "Figma"],
       image: project4Img,
       link: "https://drive.google.com/file/d/1cEEQEv9mRBhmX4E-aVTK3DkWlQ5Y_nCQ/view?usp=drive_link",
       featured: false,
