@@ -47,7 +47,7 @@ const ProjectModal = ({ project, onClose }) => {
               rel="noopener noreferrer"
               className="btn-project-link"
             >
-              프로젝트 보러가기 <ArrowUpRight size={18} />
+              프로젝트 보러가기 →
             </a>
           ) : (
             <button className="btn-project-link disabled" disabled>
