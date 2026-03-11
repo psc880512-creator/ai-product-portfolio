@@ -1,4 +1,4 @@
-import React from 'react';
+aimport React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import project1Img from '../assets/project1-placeholder.png';
 import project2Img from '../assets/project2-placeholder.png';
@@ -210,19 +210,47 @@ const Projects = ({ onOpenModal }) => {
                 }
               }}
             >
-              <div className="project-image-wrapper">
+              <div
+                className="project-image-wrapper"
+                style={{
+                  width: '100%',
+                  overflow: 'hidden',
+                  borderRadius: '16px'
+                }}
+              >
                 {project.image ? (
                   <img
                     src={project.image}
                     alt={project.title}
                     className="project-image"
+                    style={{
+                      width: '100%',
+                      height: '240px',
+                      objectFit: 'cover',
+                      display: 'block'
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                      const fallback = e.currentTarget.nextElementSibling;
+                      if (fallback) fallback.style.display = 'flex';
+                    }}
                   />
-                ) : (
-                  <div className="project-image placeholder-img">
-                    <span className="placeholder-text">Thumbnail</span>
-                  </div>
-                )}
+                ) : null}
+
+                <div
+                  className="project-image placeholder-img"
+                  style={{
+                    width: '100%',
+                    height: '240px',
+                    display: project.image ? 'none' : 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <span className="placeholder-text">Thumbnail</span>
+                </div>
               </div>
+
               <div className="project-content">
                 <div className="project-tags">
                   {project.tags.map(tag => (
@@ -231,12 +259,9 @@ const Projects = ({ onOpenModal }) => {
                 </div>
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-desc">{project.description}</p>
-                <button
-                  className="btn-view-details"
-                  onClick={() => onOpenModal(project)}
-                >
+                <div className="btn-view-details">
                   상세 보기 <ArrowUpRight size={18} />
-                </button>
+                </div>
               </div>
             </div>
           ))}
@@ -244,7 +269,18 @@ const Projects = ({ onOpenModal }) => {
 
         <div className="other-projects">
           {otherProjects.map((project) => (
-            <div key={project.id} className="project-card compact">
+            <div
+              key={project.id}
+              className="project-card compact"
+              onClick={() => onOpenModal(project)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  onOpenModal(project);
+                }
+              }}
+            >
               <div className="project-content">
                 <div className="project-tags">
                   {project.tags.map(tag => (
@@ -252,12 +288,9 @@ const Projects = ({ onOpenModal }) => {
                   ))}
                 </div>
                 <h3 className="project-title">{project.title}</h3>
-                <button
-                  className="btn-view-details"
-                  onClick={() => onOpenModal(project)}
-                >
+                <div className="btn-view-details">
                   상세 보기 <ArrowUpRight size={18} />
-                </button>
+                </div>
               </div>
             </div>
           ))}
