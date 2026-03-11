@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, CheckCircle, ExternalLink, Github, ChevronLeft, ChevronRight, Grid } from 'lucide-react';
+import { X, CheckCircle, ChevronLeft, ChevronRight, Grid } from 'lucide-react';
 
 const ProjectModal = ({ project, onClose }) => {
   const [selectedImgIdx, setSelectedImgIdx] = useState(null);
@@ -60,7 +60,6 @@ const ProjectModal = ({ project, onClose }) => {
           {project.id === 4 ? (
             /* Gallery Layout for ID 4 (AI Image Design) */
             <div className="modal-gallery-container">
-
               {selectedImgIdx === null ? (
                 <>
                   <div className="gallery-header">
@@ -161,19 +160,6 @@ const ProjectModal = ({ project, onClose }) => {
                 </div>
               </div>
             </>
-          )}
-        </div>
-
-        <div className="modal-footer">
-          {project.details.link && (
-            <a href={project.details.link} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
-              <Github size={18} /> GitHub
-            </a>
-          )}
-          {project.details.demoLink && (
-            <a href={project.details.demoLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-              <ExternalLink size={18} /> Demo / Live
-            </a>
           )}
         </div>
       </div>
