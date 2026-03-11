@@ -204,54 +204,26 @@ const Projects = ({ onOpenModal }) => {
               onClick={() => onOpenModal(project)}
               role="button"
               tabIndex={0}
-              style={{ cursor: "pointer" }}
+              style={{ cursor: 'pointer' }}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   onOpenModal(project);
                 }
               }}
             >
-              <div
-                className="project-image-wrapper"
-                style={{
-                  width: '100%',
-                  overflow: 'hidden',
-                  borderRadius: '16px'
-                }}
-              >
+              <div className="project-image-wrapper">
                 {project.image ? (
                   <img
                     src={project.image}
                     alt={project.title}
                     className="project-image"
-                    style={{
-                      width: '100%',
-                      height: '240px',
-                      objectFit: 'cover',
-                      display: 'block'
-                    }}
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                      const fallback = e.currentTarget.nextElementSibling;
-                      if (fallback) fallback.style.display = 'flex';
-                    }}
                   />
-                ) : null}
-
-                <div
-                  className="project-image placeholder-img"
-                  style={{
-                    width: '100%',
-                    height: '240px',
-                    display: project.image ? 'none' : 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}
-                >
-                  <span className="placeholder-text">Thumbnail</span>
-                </div>
+                ) : (
+                  <div className="project-image placeholder-img">
+                    <span className="placeholder-text">Thumbnail</span>
+                  </div>
+                )}
               </div>
-
               <div className="project-content">
                 <div className="project-tags">
                   {project.tags.map(tag => (
@@ -276,6 +248,7 @@ const Projects = ({ onOpenModal }) => {
               onClick={() => onOpenModal(project)}
               role="button"
               tabIndex={0}
+              style={{ cursor: 'pointer' }}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   onOpenModal(project);
